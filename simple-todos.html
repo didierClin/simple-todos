@@ -11,10 +11,14 @@
         <input type="checkbox" checked="{{hideCompleted}}" />
         Cacher les tâches complétées
       </label>
+        
+      {{> loginButtons}}
+        {{#if currentUser}}
+            <form class="new-task">
+              <input type="text" name="text" placeholder="Ajouter une nouvelle tâche" />
+            </form>
+      {{/if}}
 
-      <form class="new-task">
-        <input type="text" name="text" placeholder="Ajouter une nouvelle tâche" />
-      </form>
 <h3> ({{incompleteCount}}) tâches en cours.</h3>
     </header>
 
@@ -34,7 +38,7 @@
 
         <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
 
-        <span class="text">{{text}}</span>
+            <span class="text"><strong>{{username}}</strong> - {{text}}</span>
 
   </li>
 </template>
